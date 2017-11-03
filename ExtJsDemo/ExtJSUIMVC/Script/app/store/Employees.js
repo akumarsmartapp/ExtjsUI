@@ -1,38 +1,56 @@
-﻿Ext.define('ExtJSUI.store.Employees',
-{
+﻿//Ext.define('EA.store.Employees',
+//{
+//    extend: 'Ext.data.Store',
+//   // models: ['EA.model.EmployeeModel'],
+//    fields: ['empId', 'empName', 'empAge', 'department', 'empAddress'],
+    
+//    storeId: 'Employees',
+    
+//    proxy:
+//    {
+//        type: 'ajax',
+//        reader:
+//        {
+//            root: 'value',
+//            type: 'json'
+//        },
+//        api:
+//        {
+//            read: '/WebApiEmployees/api/Employee/FindEmployee',
+//            create: '/WebApiEmployees/api/Employee/AddEmployeeDetails',
+//            update: '/WebApiEmployees/api/Employee/UpdateEmployee',
+//            destroy: '/WebApiEmployees/api/Employee/DeleteEmployee/'
+//        },
+//        actionMethods:
+//        {
+//            destroy: 'DELETE',
+//            read: 'GET',
+//            create: 'POST',
+//            update: 'PUT'
+//        }
+
+//    },
+//    autoLoad:true,
+//});
+
+
+
+var mystore = Ext.define('EA.store.Employees', {
     extend: 'Ext.data.Store',
-    fields: ['empId', 'empName', 'empAge', 'department', 'empAddress'],
-    storeId: 'Employees',
     autoLoad: true,
     proxy:
     {
         type: 'ajax',
         reader:
         {
-            root: 'data',
+            root: 'value',
             type: 'json'
-        },
-        api:
-        {
-            read: 'http://localhost/WebApiEmployees/api/Employee/FindEmployee',
-            create: 'http://localhost/WebApiEmployees/api/Employee/AddEmployeeDetails',
-            update: 'http://localhost/WebApiEmployees/api/Employee/UpdateEmployee',
-            destroy: 'http://localhost/WebApiEmployees/api/Employee/DeleteEmployee/'
-        },
-        actionMethods:
-        {
-            destroy: 'DELETE',
-            read: 'GET',
-            create: 'POST',
-            update: 'PUT'
         }
-
-    }
+    },
+    fields: ['empId', 'empName', 'empAge', 'department', 'empAddress'],
+    data: [
+        { empId: '1', empName: 'ABC', empAge: '20', department: 'IT', empAddress: 'Bangalore' },
+        { empId: '2', empName: 'ABC', empAge: '20', department: 'IT', empAddress: 'Bangalore' },
+    ],
+    
 });
-
-
-
-
-
-
-
